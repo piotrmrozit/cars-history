@@ -29,4 +29,9 @@ export class CarDetailComponent implements OnInit {
     this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route})
   }
 
+  onDeleteCar() {
+    this.carService.deleteCar(this.id);
+    this.router.navigate(['/cars'])
+  }
+
 }
