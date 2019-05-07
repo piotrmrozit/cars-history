@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Car } from './car.model';
 import { Subject } from 'rxjs/Subject';
+import { HttpClient } from '@angular/common/http'
+import { Car } from './car.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,8 @@ export class CarsService {
     new Car('Nissan', '350z', 300, 'https://i.pinimg.com/originals/b1/59/9c/b1599cdf6cd63b7dc10f12140af75b46.jpg')
   ]
 
+  constructor(private http: HttpClient) {}
+
   getCars() {
     return this.cars.slice();
   }
@@ -25,6 +28,26 @@ export class CarsService {
   addCar(car: Car) {
     this.cars.push(car);
     this.carsChanged.next(this.cars.slice());
+  }
+
+  setCars(cars: Car[]) {
+    this.cars = cars;
+    this.carsChanged.next(this.cars.slice()); 
+  }
+
+  storeCars() {
+    return this.http.put('https://cars-history-db-cc3ab.firebaseio.com/cars.json', this.getCars());
+  }
+
+  loadStoredCars() {
+    return this.http.get('https://cars-history-db-cc3ab.firebaseio.com/cars.json')
+      .subscribe(
+        (response: Response) => {
+          console.log(response);
+          const cars: any = response;
+          this.setCars(cars)
+        }
+      )
   }
 
   updateCar(index: number, newCar: Car) {

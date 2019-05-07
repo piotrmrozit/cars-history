@@ -28,6 +28,19 @@ export class CarListComponent implements OnInit, OnDestroy {
     this.router.navigate(['new'], { relativeTo: this.route });
   }
 
+  onSave() {
+    this.carService.storeCars()
+      .subscribe(
+        (response: Response) => {
+          console.log(response);
+        }
+      )
+  }
+
+  onLoad() {
+    this.carService.loadStoredCars();
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
