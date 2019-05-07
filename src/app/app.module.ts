@@ -24,6 +24,7 @@ import { DropdownDirective } from './shared/dropdown.directive';
 
 import { CarsService } from './cars/car.service';
 import { AuthService } from './auth/auth.service';
+import { AuthGuardService } from './auth/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { AuthService } from './auth/auth.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [CarsService, AuthService],
+  providers: [CarsService, AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -11,10 +11,11 @@ export class MenuComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    console.log(this.authService.isAuthenticated())
+    
   }
 
   onLogout() {
+    console.log('LOGOUT');
     this.authService.logout()
   }
 
