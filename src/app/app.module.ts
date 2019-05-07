@@ -12,16 +12,18 @@ import { CarItemComponent } from './cars/car-list/car-item/car-item.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
-import { CarsService } from './cars/car.service';
 import { AboutComponent } from './about/about.component';
 import { UsersComponent } from './users/users.component';
 import { ProfileComponent } from './profile/profile.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CarsStartComponent } from './cars/cars-start/cars-start.component';
 import { CarEditComponent } from './cars/car-edit/car-edit.component';
 import { DropdownDirective } from './shared/dropdown.directive';
+
+import { CarsService } from './cars/car.service';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,7 @@ import { DropdownDirective } from './shared/dropdown.directive';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [CarsService],
+  providers: [CarsService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

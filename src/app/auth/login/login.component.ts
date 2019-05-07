@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,18 +12,20 @@ export class LoginComponent implements OnInit {
   forbiddenUsernames = ['Anna'];
   loginForm: FormGroup;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
     this.loginForm = new FormGroup({
-      'userName': new FormControl(null, [Validators.required, this.forbiddenUsernamesValidator.bind(this)]),
+      // 'userName': new FormControl(null, [Validators.required, this.forbiddenUsernamesValidator.bind(this)]),
       'email': new FormControl(null, [Validators.required, Validators.email]),
       'password': new FormControl(null, Validators.required)
     });
   }
 
   onSubmit() {
-      console.log(this.loginForm);
+    const email = this.loginForm.value.email;
+    const password = this.loginForm.value.password;
+    this.authService.loginUser(email, password);
   }
 
   forbiddenUsernamesValidator(control: FormControl): {[s: string]: boolean} {

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { HttpClient } from '@angular/common/http'
+import { AuthService } from '../auth/auth.service';
 import { Car } from './car.model';
 
 @Injectable({
@@ -15,7 +16,7 @@ export class CarsService {
     new Car('Nissan', '350z', 300, 'https://i.pinimg.com/originals/b1/59/9c/b1599cdf6cd63b7dc10f12140af75b46.jpg')
   ]
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   getCars() {
     return this.cars.slice();
@@ -36,11 +37,13 @@ export class CarsService {
   }
 
   storeCars() {
-    return this.http.put('https://cars-history-db-cc3ab.firebaseio.com/cars.json', this.getCars());
+    const token = this.authService.getToken();
+    return this.http.put('https://cars-history-db-cc3ab.firebaseio.com/cars.json?auth=' + token, this.getCars());
   }
 
   loadStoredCars() {
-    return this.http.get('https://cars-history-db-cc3ab.firebaseio.com/cars.json')
+    const token = this.authService.getToken();
+    return this.http.get('https://cars-history-db-cc3ab.firebaseio.com/cars.json?auth=' + token)
       .subscribe(
         (response: Response) => {
           console.log(response);
