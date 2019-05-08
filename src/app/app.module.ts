@@ -10,8 +10,6 @@ import { MenuComponent } from './menu/menu.component';
 import { AboutComponent } from './about/about.component';
 import { UsersComponent } from './users/users.component';
 import { ProfileComponent } from './profile/profile.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import { DropdownDirective } from './shared/dropdown.directive';
@@ -22,6 +20,7 @@ import { AuthGuardService } from './auth/auth-guard.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { CarsModule } from './cars/cars.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -32,8 +31,6 @@ import { CarsModule } from './cars/cars.module';
     AboutComponent,
     UsersComponent,
     ProfileComponent,
-    LoginComponent,
-    RegisterComponent,
     NotFoundComponent,
     DropdownDirective,
   ],
@@ -42,6 +39,7 @@ import { CarsModule } from './cars/cars.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    AuthModule,
     CarsModule,
     AppRoutingModule
   ],
