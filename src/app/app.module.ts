@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -14,11 +13,14 @@ import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+
 import { DropdownDirective } from './shared/dropdown.directive';
 
 import { CarsService } from './cars/car.service';
 import { AuthService } from './auth/auth.service';
 import { AuthGuardService } from './auth/auth-guard.service';
+
+import { AppRoutingModule } from './app-routing.module';
 import { CarsModule } from './cars/cars.module';
 
 @NgModule({
@@ -37,11 +39,11 @@ import { CarsModule } from './cars/cars.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    CarsModule
+    CarsModule,
+    AppRoutingModule
   ],
   providers: [CarsService, AuthService, AuthGuardService],
   bootstrap: [AppComponent]
