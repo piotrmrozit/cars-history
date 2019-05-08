@@ -5,10 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { CarsComponent } from './cars/cars.component';
-import { CarDetailComponent } from './cars/car-detail/car-detail.component';
-import { CarListComponent } from './cars/car-list/car-list.component';
-import { CarItemComponent } from './cars/car-list/car-item/car-item.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
@@ -18,21 +14,16 @@ import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { CarsStartComponent } from './cars/cars-start/cars-start.component';
-import { CarEditComponent } from './cars/car-edit/car-edit.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 
 import { CarsService } from './cars/car.service';
 import { AuthService } from './auth/auth.service';
 import { AuthGuardService } from './auth/auth-guard.service';
+import { CarsModule } from './cars/cars.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CarsComponent,
-    CarDetailComponent,
-    CarListComponent,
-    CarItemComponent,
     HeaderComponent,
     FooterComponent,
     MenuComponent,
@@ -42,8 +33,6 @@ import { AuthGuardService } from './auth/auth-guard.service';
     LoginComponent,
     RegisterComponent,
     NotFoundComponent,
-    CarsStartComponent,
-    CarEditComponent,
     DropdownDirective,
   ],
   imports: [
@@ -51,7 +40,8 @@ import { AuthGuardService } from './auth/auth-guard.service';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CarsModule
   ],
   providers: [CarsService, AuthService, AuthGuardService],
   bootstrap: [AppComponent]
