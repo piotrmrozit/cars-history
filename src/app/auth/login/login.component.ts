@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = new FormGroup({
-      // 'userName': new FormControl(null, [Validators.required, this.forbiddenUsernamesValidator.bind(this)]),
+      'username': new FormControl(null, [Validators.required, this.forbiddenUsernamesValidator.bind(this)]),
       'email': new FormControl(null, [Validators.required, Validators.email]),
       'password': new FormControl(null, Validators.required)
     });
@@ -25,7 +25,10 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
-    this.authService.loginUser(email, password);
+    const username = this.loginForm.value.username;
+
+    this.authService.login(username, email, password)
+    // this.authService.loginUser(email, password);
   }
 
   forbiddenUsernamesValidator(control: FormControl): {[s: string]: boolean} {

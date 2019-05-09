@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { User } from './../../shared/user.model';
 
 @Component({
   selector: 'app-register',
@@ -15,20 +16,29 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = new FormGroup({
-      // 'firstName': new FormControl(null, Validators.required),
-      // 'lastName': new FormControl(null, Validators.required),
-      // 'userName': new FormControl(null, Validators.required),
+      'firstname': new FormControl(null, Validators.required),
+      'lastname': new FormControl(null, Validators.required),
+      'username': new FormControl(null, Validators.required),
+      'birthday': new FormControl(null, Validators.required),
       'email': new FormControl(null, Validators.required),
-      // 'gender': new FormControl(null, Validators.required),
+      'gender': new FormControl(null, Validators.required),
       'password': new FormControl(null, Validators.required),
-      // 'rePassword': new FormControl(null, Validators.required),
+      'rePassword': new FormControl(null, Validators.required),
     })
   }
 
   onSubmit() {
-    const email = this.registerForm.value.email;
-    const password = this.registerForm.value.password;
-    this.authService.registerUser(email, password);
+    const user = {
+      firstname: this.registerForm.value.firstname, 
+      lastname: this.registerForm.value.lastname, 
+      gender: this.registerForm.value.gender, 
+      username: this.registerForm.value.username,
+      email: this.registerForm.value.email,
+      password: this.registerForm.value.password,
+      birthday: this.registerForm.value.birthday
+    }
+    this.authService.register(user);
+    // this.authService.registerUser(email, password);
   }
 
 }
