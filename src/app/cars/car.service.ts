@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpParams } from '@angular/common/http'
 import { AuthService } from '../auth/auth.service';
 import { Car } from './car.model';
 
@@ -38,16 +38,15 @@ export class CarsService {
 
   storeCars() {
     const token = this.authService.getToken();
-    return this.http.put('https://cars-history-db-cc3ab.firebaseio.com/cars.json?auth=' + token, this.getCars());
+    return this.http.put('https://cars-history-db-cc3ab.firebaseio.com/cars.json', this.getCars());
   }
 
   loadStoredCars() {
     const token = this.authService.getToken();
-    return this.http.get('https://cars-history-db-cc3ab.firebaseio.com/cars.json?auth=' + token)
+    return this.http.get<Car[]>('https://cars-history-db-cc3ab.firebaseio.com/cars.json')
       .subscribe(
-        (response: Response) => {
-          console.log(response);
-          const cars: any = response;
+        (cars) => {
+          console.log(cars);
           this.setCars(cars)
         }
       )
