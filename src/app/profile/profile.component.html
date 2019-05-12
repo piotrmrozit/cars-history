@@ -1,3 +1,11 @@
-<p>
-  profile works!
-</p>
+<div class="row">
+  <h2>PROFIL</h2>
+  <div class="container">
+    <h3>{{ loggedUser.username }}</h3>
+    <p>Imię: {{ loggedUser.firstname }}</p>
+    <p>Nazwisko: {{ loggedUser.lastname }}</p>
+    <p>E-mail: {{ loggedUser.email }}</p>
+    <p>Płeć: {{ loggedUser.gender }}</p>
+    <p>Data urodzenia: {{ loggedUser.birthday }}</p>
+  </div>
+</div>
