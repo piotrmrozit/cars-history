@@ -34,14 +34,9 @@ export class AuthService {
       loggedUser => {
         console.log('loggedUser >', loggedUser);
         localStorage.setItem('token', JSON.stringify(loggedUser['token']));
-        localStorage.setItem('user', JSON.stringify(loggedUser['user']));
         this.router.navigate(['profile']);
       }
     )
-  }
-
-  getLoggedUser() {
-    return JSON.parse(localStorage.getItem('user'));
   }
 
   getToken() {

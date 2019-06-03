@@ -12,6 +12,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { CarsService } from './cars/car.service';
 import { AuthService } from './auth/auth.service';
 import { AuthGuardService } from './auth/auth-guard.service';
+import { ProfileService } from './profile/profile.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { CarsModule } from './cars/cars.module';
@@ -41,6 +42,7 @@ import { AuthInterceptor } from './shared/auth.interceptor';
     CarsService, 
     AuthService, 
     AuthGuardService,
+    ProfileService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
