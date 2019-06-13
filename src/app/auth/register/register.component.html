@@ -1,9 +1,6 @@
-<div class="row justify-content-center align-items-center">
-  <h2>Rejestracja</h2>
-</div>
-
 <div class="row justify-content-center">
-  <div class="col-6">
+  <div class="col-6 background">
+    <h2>Rejestracja</h2>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
       <div class="form-group">
@@ -25,7 +22,8 @@
       </div>
 
       <div class="form-group">
-          <input formControlName="birthday" type="date" name="bDate" max="3000-12-31" min="1000-01-01" class="form-control">
+        <input formControlName="birthday" type="date" name="bDate" max="3000-12-31" min="1000-01-01"
+          class="form-control">
       </div>
 
       <div class="form-group">
@@ -37,7 +35,8 @@
       </div>
 
       <div class="form-group">
-        <input formControlName="username" type="text" id="username" class="form-control" placeholder="Nazwa użytkownika">
+        <input formControlName="username" type="text" id="username" class="form-control"
+          placeholder="Nazwa użytkownika">
         <span *ngIf="!registerForm.get('username').valid && registerForm.get('username').touched" class="help-block">
           <span class="text-warning-info" *ngIf="registerForm.get('username').errors['required']">
             Wprowadź nazwę użytkownika
@@ -54,22 +53,25 @@
 
       <div class="form-group">
         <input formControlName="password" type="password" id="password" class="form-control" placeholder="Hasło">
-        <span class="text-warning-info" *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched">
+        <span class="text-warning-info"
+          *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched">
           Wprowadź hasło
         </span>
       </div>
 
       <div class="form-group">
-        <input formControlName="rePassword" type="password" id="rePassword" class="form-control" placeholder="Powtórz hasło">
+        <input formControlName="rePassword" type="password" id="rePassword" class="form-control"
+          placeholder="Powtórz hasło">
         <span class="text-warning-info"
           *ngIf="!registerForm.get('rePassword').valid && registerForm.get('rePassword').touched">
           Powtórz hasło
         </span>
       </div>
 
-      <span class="text-warning-info" *ngIf="registerForm.get('rePassword').value != registerForm.get('password').value && registerForm.get('rePassword').value">
-          Hasła nie są jednakowe
-        </span>
+      <span class="text-warning-info"
+        *ngIf="registerForm.get('rePassword').value != registerForm.get('password').value && registerForm.get('rePassword').value">
+        Hasła nie są jednakowe
+      </span>
 
       <span class="text-warning-info" *ngIf="!registerForm.valid && registerForm.touched">
         Wypełnij poprawnie swoje dane

@@ -1,3 +1,15 @@
+.background {
+    background-color: white;
+    border-radius: 5px;
+    padding: 32px;
+    box-shadow: 10px 10px 32px 0px rgba(0,0,0,0.75);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
 input {
     border: 0;
     border-radius: 0;
@@ -17,4 +29,8 @@ input.ng-invalid.ng-touched {
 
 .text-warning-info {
     color: lightcoral;
+}
+
+button {
+    margin-top: 24px;
 }

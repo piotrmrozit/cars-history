@@ -1,13 +1,11 @@
-<div class="row justify-content-center align-items-center">
-  <h2>Zaloguj się</h2>
-</div>
-
 <div class="row justify-content-center">
-  <div class="col-6">
+  <div class="col-6 background">
+    <h2>Zaloguj się</h2>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
       <div class="form-group">
-        <input formControlName="username" type="text" id="username" class="form-control" placeholder="Nazwa użytkownica">
+        <input formControlName="username" type="text" id="username" class="form-control"
+          placeholder="Nazwa użytkownica">
         <span *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched" class="help-block">
           <span class="text-danger" *ngIf="loginForm.get('username').errors['required']">
             Wprowadź nazwę użytkownika
@@ -35,7 +33,7 @@
       <!-- <span class="text-danger" *ngIf="!loginForm.valid && loginForm.touched">
         Zaznacz poprawnie swoje dane
       </span> -->
-      <p></p>
+      <!-- <p></p> -->
       <button class="btn btn-primary w-100" type="submit">Zaloguj</button>
     </form>
   </div>
