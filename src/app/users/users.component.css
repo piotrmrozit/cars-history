@@ -1,0 +1,71 @@
+.user-panel {
+    margin: 8px;
+}
+
+.user {
+    position: relative;
+    max-width: 260px;
+}
+
+.user-photo {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 10px 10px 32px 0px rgba(0,0,0,0.75);
+}
+
+.user-username {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    background-color: black;
+    color: white;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.user:hover .user-username{
+    opacity: 0.7;
+}
+
+.list-type {
+    list-style-type: none;
+}
+
+.car {
+    position: relative;
+    max-width: 200px;
+    margin: auto;
+    margin-top: 12px;
+}
+
+.car-photo {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 10px 10px 32px 0px rgba(0,0,0,0.75);
+}
+
+.car-info {
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: black;
+    opacity: 0;
+    color: white;
+    text-align: center;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.car-info p:first-child {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.car:hover .car-info {
+    opacity: 0.7;
+}

@@ -1,5 +1,5 @@
-.background {
-    background-image: url('../assets/350z2.png');
+.body-background {
+    background-image: url('../assets/img/350z2.png');
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;

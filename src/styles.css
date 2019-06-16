@@ -1,4 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    font-family: Comfortaa; /* Barlow Cabin Caveat*/
+}
+
 .cursor-pointer {
     cursor: pointer;
+}
+
+.background {
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 5px;
+    padding: 32px;
+    box-shadow: 10px 10px 32px 0px rgba(0,0,0,0.75);
+}
+
+.form-control {
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid black;
+    background-color: rgb(255, 255, 255, 0);
+}
+
+input.ng-invalid.ng-touched {
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid lightcoral;
+    background-color: rgb(255, 255, 255, 0);
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-bottom: 1px solid lightgreen;
+    background-color: rgb(255, 255, 255, 0);
 }

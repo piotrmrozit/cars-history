@@ -1,3 +1,26 @@
-<p>
-  users works!
-</p>
+<div class="row">
+
+  <div *ngFor="let user of users">
+
+    <div class="user-panel">
+
+      <div class="user">
+        <label class="user-username">{{user.username}}</label>
+        <img class="user-photo" [src]="user.imgUrl">
+      </div>
+
+      <div *ngFor="let car of user.cars">
+        <div class="car">
+          <div class="car-info">
+            <p>{{car.mark}}</p>
+            <p>{{car.model}}</p>
+            <p>{{car.power}}</p>
+          </div>
+          <img class="car-photo" [src]="car.imgUrl">
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
