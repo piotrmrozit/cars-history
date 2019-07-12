@@ -1,0 +1,4 @@
+.h-limit {
+    max-height: 80vh;
+    overflow: auto;
+}

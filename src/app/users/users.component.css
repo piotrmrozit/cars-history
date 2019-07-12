@@ -1,33 +1,48 @@
+.h-limit {
+    max-height: 80vh;
+    overflow: auto;
+}
+
 .user-panel {
-    margin: 8px;
+    margin: 12px;
 }
 
 .user {
     position: relative;
-    max-width: 260px;
+    max-width: 256px;
+    cursor: pointer;
 }
 
 .user-photo {
     width: 100%;
     height: 100%;
     border-radius: 10px;
-    box-shadow: 10px 10px 32px 0px rgba(0,0,0,0.75);
+    box-shadow: 5px 10px 12px 0px rgba(0,0,0,0.75);
+    transition: width 0.5s ease-in-out;
 }
 
 .user-username {
     position: absolute;
-    bottom: 0;
+    bottom: -8px;
+    border-radius: 0 0 10px 10px;
+    padding: 10px;
     display: block;
     background-color: black;
     color: white;
     width: 100%;
     text-align: center;
+    cursor: pointer;
     opacity: 0;
-    transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out, width 0.5s ease-in-out;
+}
+
+.user:hover .user-photo {
+    width: 105%;
 }
 
 .user:hover .user-username{
     opacity: 0.7;
+    width: 105%;
 }
 
 .list-type {
@@ -45,7 +60,7 @@
     width: 100%;
     height: 100%;
     border-radius: 10px;
-    box-shadow: 10px 10px 32px 0px rgba(0,0,0,0.75);
+    box-shadow: 5px 10px 12px 0px rgba(0,0,0,0.75);
 }
 
 .car-info {

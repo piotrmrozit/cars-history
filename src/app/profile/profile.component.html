@@ -1,17 +1,18 @@
-<div class="row">
-  <h2>PROFIL</h2>
-  <div *ngIf="user" class="container">
-    <div class="row">
-      <div class="col-lg-6">
-        <img [src]="photo" alt="photo" class="img-responsive" style="max-height: 300px">
-      </div>
-      <div class="col-lg-6">
-        <h3>{{ user.username }}</h3>
-        <p>Imię: {{ user.firstname }}</p>
-        <p>Nazwisko: {{ user.lastname }}</p>
-        <p>E-mail: {{ user.email }}</p>
-        <p>Płeć: {{ user.gender }}</p>
-        <p>Data urodzenia: {{ user.birthday }}</p>
+<div class="background">
+  <div class="row">
+    <div *ngIf="user" class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <img [src]="userPhoto.url" alt="photo" class="img-responsive profile-photo" style="max-height: 300px">
+        </div>
+        <div class="col-lg-6">
+          <h3>{{ user.username }}</h3>
+          <p>Imię: {{ user.firstname }}</p>
+          <p>Nazwisko: {{ user.lastname }}</p>
+          <p>E-mail: {{ user.email }}</p>
+          <p>Płeć: {{ user.gender }}</p>
+          <p>Data urodzenia: {{ user.birthday }}</p>
+        </div>
       </div>
     </div>
   </div>

@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class UsersComponent implements OnInit {
   users = [
     {
+      id: 1,
       username: 'Alexa', 
       imgUrl: 'https://jooinn.com/images/blonde-girl-19.jpg',
       cars: [
@@ -38,6 +39,7 @@ export class UsersComponent implements OnInit {
       ]
     },
     {
+      id: 2,
       username: 'Mija', 
       imgUrl: 'https://ak7.picdn.net/shutterstock/videos/17574637/thumb/1.jpg',
       cars: [
@@ -56,6 +58,7 @@ export class UsersComponent implements OnInit {
       ]
     },
     {
+      id: 3,
       username: 'Olivia', 
       imgUrl: 'https://ak4.picdn.net/shutterstock/videos/30653314/thumb/1.jpg?i10c=img.resize(height:160)',
       cars: [
@@ -80,6 +83,7 @@ export class UsersComponent implements OnInit {
       ]
     },
     {
+      id: 4,
       username: 'Tola', 
       imgUrl: 'https://farm1.static.flickr.com/174/466072022_8de7b904c1_b.jpg',
       cars: [
@@ -93,7 +97,23 @@ export class UsersComponent implements OnInit {
     }
   ]
 
+  userIdToShowCars: number;
+  showCars: boolean = false;
+
   constructor() { }
+
+  selectedUser(userId) {
+    if(userId === this.userIdToShowCars) {
+      this.userIdToShowCars = null;
+    } else {
+      this.userIdToShowCars = userId;
+    }
+    return userId;
+  }
+
+  toggle(user) {
+    this.selectedUser(user.id);
+  }
 
   ngOnInit() {
   }

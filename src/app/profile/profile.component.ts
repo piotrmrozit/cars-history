@@ -24,6 +24,13 @@ export class ProfileComponent implements OnInit {
         this.user = user;
       }
     )
+    this.profileService.getProfilePhoto()
+    .subscribe(
+      (userPhoto: UserPhoto) => {
+        console.log('photo >', userPhoto);
+        this.userPhoto = userPhoto;
+      }
+    )
   }
 
 }
