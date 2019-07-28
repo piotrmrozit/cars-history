@@ -14,12 +14,14 @@ import { CarsService } from './cars/car.service';
 import { AuthService } from './auth/auth.service';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { ProfileService } from './profile/profile.service';
+import { DatePipe } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { CarsModule } from './cars/cars.module';
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
 import { AuthInterceptor } from './shared/auth.interceptor';
+import { ProfileModule } from './profile/profile.module';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { AuthInterceptor } from './shared/auth.interceptor';
     CoreModule,
     AuthModule,
     CarsModule,
+    ProfileModule,
     AppRoutingModule
   ],
   providers: [
@@ -45,6 +48,7 @@ import { AuthInterceptor } from './shared/auth.interceptor';
     AuthService, 
     AuthGuardService,
     ProfileService,
+    DatePipe,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]

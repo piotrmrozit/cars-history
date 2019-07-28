@@ -18,4 +18,13 @@ export class ProfileService {
     return this.http.get<UserPhoto>('http://localhost:8000/api/users/profilephoto');
   }
 
+  saveProfile(profile: User) {
+    this.http.post<User>('http://localhost:8000/api/users/edit', profile)
+      .subscribe(
+        newProfile => {
+          console.log('newProfile', newProfile);
+        }
+      )
+  }
+
 }
